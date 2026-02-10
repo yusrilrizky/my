@@ -1,0 +1,74 @@
+╔══════════════════════════════════════════════════════════════╗
+║           BUILD FAILED? INI SOLUSINYA! (DOCKER)             ║
+╚══════════════════════════════════════════════════════════════╝
+
+🔧 MASALAH:
+   Build failed karena better-sqlite3 (native module)
+
+✅ SOLUSI:
+   Ganti ke Docker build (lebih reliable)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 YANG SUDAH DIPERBAIKI:
+
+   ✓ Dockerfile created (Node 18 Alpine + build tools)
+   ✓ .dockerignore created (exclude unnecessary files)
+   ✓ .npmrc created (legacy-peer-deps config)
+   ✓ railway.json updated (DOCKERFILE builder)
+   ✓ package.json updated (postinstall script)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 DEPLOY ULANG (3 LANGKAH):
+
+   1. COMMIT & PUSH:
+      git add .
+      git commit -m "Fix build with Docker"
+      git push
+
+   2. RAILWAY AUTO-REDEPLOY:
+      Railway detect Dockerfile → build otomatis
+      Tunggu 3-5 menit (Docker build lebih lama)
+
+   3. TEST:
+      https://your-app.railway.app/health
+      https://your-app.railway.app/login
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐛 KALAU MASIH ERROR?
+
+   1. CEK LOGS:
+      Railway dashboard → Deployments → View Build Logs
+
+   2. REDEPLOY MANUAL:
+      Railway dashboard → Deployments → "..." → Redeploy
+
+   3. TEST LOKAL:
+      docker build -t animestream .
+      docker run -p 3000:3000 animestream
+      curl http://localhost:3000/health
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 KENAPA DOCKER?
+
+   Nixpacks:  ❌ Sering gagal build native modules
+   Docker:    ✅ Consistent environment, pasti berhasil
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 BACA PANDUAN LENGKAP:
+
+   BUILD_FIX.md         - Troubleshooting build
+   DEPLOY_SEKARANG.md   - Quick deploy guide
+   RAILWAY_DEPLOY.md    - Full Railway guide
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ SELESAI!
+
+   Push ke GitHub → Railway auto-build dengan Docker → BERHASIL!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
